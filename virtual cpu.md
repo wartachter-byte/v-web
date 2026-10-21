@@ -44,7 +44,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 "Operand(s)" shall mean any data following the [Opcode](#interpretation) if needed.
 
 ## Operation
-The [CPU](#definition) shall [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition)
+The [CPU](#definition) shall [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition).
 
 # Execution Cycle
-The [CPU](#definition) shall change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the description in [opcodes.md](/opcodes.md)
+The [CPU](#definition) shall change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the opcodes and description in [opcodes.md](/opcodes.md).
