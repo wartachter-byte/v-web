@@ -1,3 +1,6 @@
+# Work In Progress
+This document is still being worked, nothing in this document is complete yet and as such should not yet be active.
+
 # Definition
 "Code" shall mean the data which is being executed.
 <br>
@@ -35,7 +38,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 <br>
 "Time Step" shall mean a singular step in the [Execution Cycle](#execution-cycle).
 
-## Interpretatrion
+## Interpretation
 "Opcode" shall mean the first 8 bits of the [Current Instruction](#execution-detailed-definition).
 <br>
 "Operand(s)" shall mean any data following the [Opcode](#interpretation) if needed.
@@ -44,4 +47,4 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 The [CPU](#definition) shall [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition)
 
 # Execution Cycle
-The [CPU](#definition) shall change the [State](#definition) according to the description below:
+The [CPU](#definition) shall change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the description in [opcodes.md](/opcodes.md)
