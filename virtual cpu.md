@@ -9,6 +9,8 @@ This document is still being worked, nothing in this document is complete yet an
 "Executing the Code" (also referred to as "Execution of the Code", "Execution" or "Executing") shall mean the process of the CPU doing exactly as defined in [Execution Detailed Definition](#execution-detailed-definition).
 <br>
 "State" shall mean all data stored by the CPU at any given moment, consisting of what is described in the [State Detailed Definition](#state-detailed-definition).
+<br>
+"0x" shall mean a notation prefix detailing that the immediately following sentence is a numeric value written in base-16 (hexadecimal) where 0 through 9 have the values 0 through 9 and A through F have the values 10 through 15.
 
 # State Detailed Defintion
 The [State](#definition) consist of sub-groups storing a N amount of data as described below.
