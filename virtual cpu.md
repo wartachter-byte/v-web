@@ -15,11 +15,15 @@ This document is still being worked, nothing in this document is complete yet an
 # State Detailed Defintion
 The [State](#definition) consist of sub-groups storing a N amount of data as described below.
 
+# Proccess
+"Proccess" shall mean a collection of 1 State and 1 Code, Execution of the Code in the Proccess can be on any CPU.
+"This Proccess" shall mean the current Proccess.
+
 ## 64-bit container
 "A 64-bit Container" (plural: "64-bit Containers") shall mean (a) container(s) of a length of 64 bits where bit 0 is the least significant and bit 63 is the most significant, the in between goes from 0 to 63 counting up.
 
 ## Memory
-"Memory" shall mean a continuous sequence of bytes, each of which can be addressed with a 64-bit value.
+"Memory" shall mean a continuous sequence of bytes, each of which can be addressed with a 64-bit value belonging to this [Proccess](#proccess)
 
 ## Stack
 "Stack" shall mean a last in, first out (LIFO) data structure stored within [Memory](#memory), its position of which is defined by the [Stack Pointer (SP)](#stack-pointer).
@@ -43,7 +47,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 ## Interpretation
 "Opcode" shall mean the first 8 bits of the [Current Instruction](#execution-detailed-definition).
 <br>
-"Operand(s)" shall mean any data following the [Opcode](#interpretation) if needed.
+"Operand(s)" shall mean any data immediately following the [Opcode](#interpretation) if needed, of any specified size and of any specified amount.
 
 ## Operation
 The [CPU](#definition) shall [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition).
