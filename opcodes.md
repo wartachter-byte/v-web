@@ -2,6 +2,9 @@ This document inherits all definitions from [virtual cpu.md](/virtual+cpu.md).
 
 #wip
 
+# Register as Number
+In [Opcodes](#opcodes) any reference to Register Source, Register Destination, Register A or Register B shall be interpreted according to the Instruction Ordering Type and the numerical values corresponding to the registers: 0x00 = Register R0 till 0x1F = Register R31.
+
 # Instruction Ordering Types
 
 ## Double Register
