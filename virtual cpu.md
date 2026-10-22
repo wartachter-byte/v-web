@@ -41,19 +41,14 @@ Whenever the term '-bit' is used with a decimal number coming immediately in fro
 "Stack Pointer" (also referred to as "SP") shall mean a [64-bit Container](#64-bit-container) used to specify where in [Memory](#memory) the [Stack](#stack) is.
 
 # Execution Detailed Definition
-"Instruction" shall mean a piece of data telling the [CPU](#definition) exactly what to do, as detailed below.
+"Instruction" shall mean a 32-bit number telling the [CPU](#definition) exactly what to do, as detailed below.
 <br>
 "Current Instruction" shall mean the [Instruction](#execution-detailed-definition) at the address specified by the [PC](#program-counter) within [Memory](#memory).
 <br>
 "Time Step" shall mean a singular step in the [Execution Cycle](#execution-cycle).
 
-## Interpretation
-"Opcode" shall mean the first 8 bits of the [Current Instruction](#execution-detailed-definition).
-<br>
-"Operand(s)" shall mean any data immediately following the [Opcode](#interpretation) if needed, of any specified size and of any specified amount.
-
 ## Operation
 The [CPU](#definition) MUST [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition).
 
 # Execution Cycle
-The [CPU](#definition) MUST change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the opcodes and description in [opcodes.md](/opcodes.md).
+The [CPU](#definition) MUST change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the [Current Instruction](#execution-detailed-definition) and its corresponding description as defined table 'Opcodes' in [opcodes.md](/opcodes.md).
