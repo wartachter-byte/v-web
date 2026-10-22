@@ -1,5 +1,5 @@
 # Work In Progress
-This document is still being worked, nothing in this document is complete yet and as such should not yet be active.
+This document is still being worked, nothing in this document is complete yet and as such MUST not yet be active.
 
 # Proccess
 "Proccess" shall mean a collection of 1 State and 1 Code, Execution of the Code in the Proccess can be on any CPU.
@@ -23,7 +23,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 "A 64-bit Container" (plural: "64-bit Containers") shall mean (a) container(s) of a length of 64 bits where bit 0 is the least significant and bit 63 is the most significant, the in between goes from 0 to 63 counting up.
 
 ## Bit order
-Whenever the term '-bit' is used with a decimal number coming immediately in front of it, the order of how it should be interpreted is by default big-endian.
+Whenever the term '-bit' is used with a decimal number coming immediately in front of it, it specifies the size of an object in bits, if the object needs to be interpreted as a value it MUST be interpreted in the order of big-endian.
 
 ## Memory
 "Memory" shall mean a continuous sequence of bytes, each of which can be addressed with a 64-bit value belonging to this [Proccess](#proccess)
@@ -53,7 +53,7 @@ Whenever the term '-bit' is used with a decimal number coming immediately in fro
 "Operand(s)" shall mean any data immediately following the [Opcode](#interpretation) if needed, of any specified size and of any specified amount.
 
 ## Operation
-The [CPU](#definition) shall [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition).
+The [CPU](#definition) MUST [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition).
 
 # Execution Cycle
-The [CPU](#definition) shall change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the opcodes and description in [opcodes.md](/opcodes.md).
+The [CPU](#definition) MUST change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the opcodes and description in [opcodes.md](/opcodes.md).
