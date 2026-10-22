@@ -1,6 +1,10 @@
 # Work In Progress
 This document is still being worked, nothing in this document is complete yet and as such should not yet be active.
 
+# Proccess
+"Proccess" shall mean a collection of 1 State and 1 Code, Execution of the Code in the Proccess can be on any CPU.
+"This Proccess" shall mean the current Proccess.
+
 # Definition
 "Code" shall mean the data which is being executed.
 <br>
@@ -15,12 +19,11 @@ This document is still being worked, nothing in this document is complete yet an
 # State Detailed Defintion
 The [State](#definition) consist of sub-groups storing a N amount of data as described below.
 
-# Proccess
-"Proccess" shall mean a collection of 1 State and 1 Code, Execution of the Code in the Proccess can be on any CPU.
-"This Proccess" shall mean the current Proccess.
-
 ## 64-bit container
 "A 64-bit Container" (plural: "64-bit Containers") shall mean (a) container(s) of a length of 64 bits where bit 0 is the least significant and bit 63 is the most significant, the in between goes from 0 to 63 counting up.
+
+## Bit order
+Whenever the term '-bit' is used with a decimal number coming immediately in front of it, the order of how it should be interpreted is by default big-endian.
 
 ## Memory
 "Memory" shall mean a continuous sequence of bytes, each of which can be addressed with a 64-bit value belonging to this [Proccess](#proccess)
