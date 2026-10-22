@@ -2,10 +2,29 @@ This document inherits all definitions from [virtual cpu.md](/virtual+cpu.md).
 
 #wip
 
-# Opcodes
-| Opcode Name | Opcode Value | Operands | Description |
+
+
+# Instruction Ordering Types
+
+## Double Register
+| Bit 31 till 28 (4 bits) | Bits 27 till 23 (4 bits) | Bits 22 till 18 (5 bits) | Bits 17 till 13 (5 bits) | Bits 12 till 0 (13 bits) |
+| :-: | :-: | :-: | :-: | :-: |
+| Base Opcode | Sub Opcode | Register Destination | Register Source | No purpose |
+
+## Double Register, Immediate
+| Bit 31 till 28 (4 bits) | Bits 27 till 23 (4 bits) | Bits 22 till 18 (5 bits) | Bits 17 till 13 (5 bits) | Bits 12 till 0 (13 bits) |
+| :-: | :-: | :-: | :-: | :-: |
+| Base Opcode | Sub Opcode | Register Destination | Register A | Value B |
+
+## Single Register, Immediate
+| Bit 31 till 28 (4 bits) | Bits 27 till 23 (4 bits) | Bits 22 till 18 (5 bits) | Bits 17 till 0 (18 bits) |
 | :-: | :-: | :-: | :-: |
-| MOVE | 0x00 | "Destination" is a 8-bit [Operand](/virtual%20cpu.md), "Source" is a 8-bit [Operand](/virtual%20cpu.md) immediately following Destination | Copies the value of the register [Source](/registers.md) into register [Destination](/registers.md) |
-| LOAD | 0x01 | "Destination" is a 8-bit [Operand](/virtual%20cpu.md), "Source" is a 64-bit [Operand](/virtual%20cpu.md) immediately following Destination | Copies the value from Memory at Source to register [Destination](/registers.md) |
-| STORE | 0x02 | "Destination" is a 64-bit [Operand](/virtual%20cpu.md), "Source" is a 8-bit [Operand](/virtual%20cpu.md) immediately following Destination | Copies the value from register [Source](/registers.md) to Memory at Destination |
-| ADD | 0x03 | "Destination" is a 8-bit [Operand](/virtual%20cpu.md), "A" is a 8-bit [Operand](/virtual%20cpu.md) immediately following Destination, "B" is a 8-bit [Operand](/virtual%20cpu.md) immediately following A | Adds register [A](/registers.md) and register [B](/registers.md) together and stores in register [Destination](/registers.md)
+| Base Opcode | Sub Opcode | Register Destination | Value A |
+
+| Opcode Mnemoic | [Ordering Type](#instruction-ordering-types) | Base Opcode (binary) | Sub Opcode (binary) | Description |
+| :-: | :-: | :-: | :-: | :-: |
+| M_MOVE | Double Register | 0000 | 0000 | Copies Register Source into Register Destination |
+| M_RLOAD | Double Register | 0000 | 0001 | Copies from Memory at the value of Register Source into Register Destination |
+| M_LILOAD | Single Register, Immediate | 0000 | 0010 | Copies Value A into least significant section of Register Destination |
+| M_RSTORE | Double Register | 0000 | 0011 | Copies Register Source into Memory at the value of Register Destination |
+| A_ADD | Double Register | 0001 | 0000 |
