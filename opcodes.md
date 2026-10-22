@@ -43,9 +43,9 @@ ALL values are loaded or stored in big-endian.
 | M_RSTORE | Double Register | 0000 | 0011 | Copies Register Source into Memory at the value of Register Destination |
 | AM_LISLOAD | Single Register, Immediate | 0000 | 0100 | Shifts Register Destination to the left by 18 and copies Value A into the lower 18 bits of Register Destination |
 | M_SWP | Double Register | 0000 | 0101 | Swaps the value of Register Source and Register Destination |
-| A_UADD | Triple Register | 0001 | 0000 | Adds the value of Register A and Register B as unsigned values and stores the result in Register Destination truncated to 64 bits |
-| A_SADD | Triple Register | 0001 | 0001 | Adds the value of Register A and Register B as signed values using Two's complement and stores the result in Register Destination truncated to 64 bits |
-| A_SUB | Triple Register | 0001 | 0010 | Subtracts the value of Register B from the value of Register A as signed values using Two's complement and stores the result in Register Destination truncated to 64 bits |
+| A_UADD | Triple Register | 0001 | 0000 | Adds the value of Register A and Register B as unsigned values and stores the lower 64 bits of the result in Register Destination |
+| A_SADD | Triple Register | 0001 | 0001 | Adds the value of Register A and Register B as signed values using Two's complement and stores the lower 64 bits of the result in Register Destination |
+| A_SUB | Triple Register | 0001 | 0010 | Subtracts the value of Register B from the value of Register A as signed values using Two's complement and stores the lower 64 bits of the result in Register Destination|
 | A_UMULH | Triple Register | 0001 | 0011 | Multiplies the value of Register A and Register B as unsigned values and stores the upper 64 bits of the result in Register Destination |
 | A_UMULL | Triple Register | 0001 | 0100 | Multiplies the value of Register A and Register B as unsigned values and stores the lower 64 bits of the result in Register Destination |
 | A_SMULH | Triple Register | 0001 | 0011 | Multiplies the value of Register A and Register B as signed values using Two's Complement and stores the upper 64 bits of the result in Register Destination |
