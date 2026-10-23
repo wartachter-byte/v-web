@@ -7,9 +7,10 @@
 * "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Proccess or exclusive to this Proccess
 * Proccess can be made by other Proccess as detailed in [hostcall.md](/hostcall.md)
 * A Proccess is always Exectuting its code unless otherwise specified by [hostcall.md](/hostcall.md)
+* When a Proccess is first created, ita PC will start at 0
 
 # Definition
-* "Code" shall mean the data which is being executed.
+* "Code" shall mean a section of [Memory](#state-detailed-definition) that is not writable or readable by the proccess, but can be executed on.
 * "CPU" shall mean anything capable of Executing the Code.
 * "Executing the Code" (also referred to as "Execution of the Code", "Execution" or "Executing") shall mean the process of the CPU doing exactly as defined in [Execution Detailed Definition](#execution-detailed-definition).
 * "State" shall mean all data stored by the CPU at any given moment, consisting of what is described in the [State Detailed Definition](#state-detailed-definition).
@@ -20,7 +21,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 
 > Whenever the term '-bit' is used with a decimal number coming immediately in front of it, it specifies the size of an object in bits, if the object needs to be interpreted as a value it MUST be interpreted in the order of big-endian.
 
-* "Memory" shall mean a continuous sequence of bytes, each of which can be addressed with a 64-bit value belonging to this [Proccess](#proccess)
+* "Memory" shall mean a continuous sequence of readable and writable bytes, each of which can be addressed with a 64-bit value belonging to this [Proccess](#proccess), parts of Memory can serve a seperate function.
 * "Stack" shall mean a first in, first out (FIFO) data structure stored within [Memory](#memory), its position of which is defined by the [Stack Pointer (SP)](#stack-pointer).
 * "R0" to "R31" shall mean 32 64-bit numbers referred to as "R0" through "R31".
 * "Program Counter" (also referred to as "PC") shall mean a 64-bit number used to specify the location of the [Execution of the Code](#definition) in the [Code](#definition).
