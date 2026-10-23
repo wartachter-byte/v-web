@@ -1,16 +1,21 @@
-<!-- Status: WIP, Basics Complete, Markup good, net-com is TODO -->
+<!-- TO DO: net-com.md -->
+<!-- Complete: Basis, Process -->
 # Workspace
-* "Worskspace" shall mean the environment for all the [Proccess('s)](#proccess)
-* The first Proccess to be created is gained from the 'index' of the Server, as detailed in [net-com.md](/net-com.md)
+* "Worskspace" shall mean the environment for all the [Process('s)](#process)
+* The first Process to be created is gained from the 'index' of the Server, as detailed in [net-com.md](/net-com.md)
 
-# Proccess
-* "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Proccess or exclusive to this Proccess
-* Proccess can be made by other Proccess as detailed in [hostcall.md](/hostcall.md)
-* A Proccess does not stop Executing its Code untill the Workspace is destroyed or the Proccess [exits](/hostcall.md)
-* When a Proccess is first created, ita PC will start at 0
+# Process
+* "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Process or exclusive to this Process
+* Process can be made by other Process as detailed in [hostcall.md](/hostcall.md)
+* A Process does not stop Executing its Code untill the Workspace is destroyed or the Process [exits](/hostcall.md)
+* "Nice" shall mean the priority of a Process, being a number ranging from 1 to 1023
+* A Process with a Nice value of 1 SHOULD not execute anymore than 50 Instruction per Second, A Process with a Nice value of 1023 SHOULD not execute less than 500000 Instructions per Second, any other values should be chosen linearly based on these specifications.
+* A Process SHOULD have at least 1 Instruction per Second.
+* Anybody implementing [this documentation](/virtual%20cpu.md) MUST TRY to complete the 2 above rules.
+* When a Process is first created, its PC will start at 0
 
 # Definition
-* "Code" shall mean a section of [Memory](#state-detailed-definition) that is not writable or readable by the proccess, but can be executed on.
+* "Code" shall mean a section of [Memory](#state-detailed-definition) that is not writable or readable by the process, but can be executed.
 * "CPU" shall mean anything capable of Executing the Code.
 * "Executing the Code" (also referred to as "Execution of the Code", "Execution" or "Executing") shall mean the process of the CPU doing exactly as defined in [Execution Detailed Definition](#execution-detailed-definition).
 * "State" shall mean all data stored by the CPU at any given moment, consisting of what is described in the [State Detailed Definition](#state-detailed-definition).
@@ -21,7 +26,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 
 > Whenever the term '-bit' is used with a decimal number coming immediately in front of it, it specifies the size of an object in bits, if the object needs to be interpreted as a value it MUST be interpreted in the order of big-endian.
 
-* "Memory" shall mean a continuous sequence of readable and writable bytes, each of which can be addressed with a 64-bit value belonging to this [Proccess](#proccess), parts of Memory can serve a seperate function.
+* "Memory" shall mean a continuous sequence of readable and writable bytes, each of which can be addressed with a 64-bit value belonging to this [Process](#process), parts of Memory can serve a seperate function, all of Memory with the exception of the Code cannot be executed.
 * "Stack" shall mean a first in, first out (FIFO) data structure stored within [Memory](#memory), its position of which is defined by the [Stack Pointer (SP)](#stack-pointer).
 * "R0" to "R31" shall mean 32 64-bit numbers referred to as "R0" through "R31".
 * "Program Counter" (also referred to as "PC") shall mean a 64-bit number used to specify the location of the [Execution of the Code](#definition) in the [Code](#definition).
