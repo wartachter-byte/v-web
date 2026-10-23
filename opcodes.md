@@ -1,9 +1,13 @@
 This document inherits all definitions from [virtual cpu.md](/virtual+cpu.md).
+<!-- Status: Base is done -->
 
-#wip
-
-# Register as Number
-In [Opcodes](#opcodes) any reference to Register Source, Register Destination, Register A or Register B shall be interpreted according to the Instruction Ordering Type and the numerical values corresponding to the registers: 0x00 = Register R0 till 0x1F = Register R31.
+# Details
+* In [Opcodes](#opcodes) any reference to Register Source, Register Destination, Register A or Register B shall be interpreted according to the Instruction Ordering Type and the numerical values corresponding to the registers: 0x00 = Register R0 till 0x1F = Register R31.
+* ALL values are loaded or stored in big-endian.
+* ANY store deletes all the information in the Register it is applied to.
+* BOTH Base Opcode AND Sub Opcode MUST match what is written in the table for it to be that exact instruction.
+* ANY getting / setting in the Memory is of the size of 64 bits with the exception of M_RSTORE32, M_RSTORE16, M_RSTORE8, M_RLOAD32, M_RLOAD16 and M_RLOAD8.
+* ANY getting / setting in the Memory ranges from specified Location till +64 bits or +specified size.
 
 # Instruction Ordering Types
 
@@ -38,19 +42,12 @@ In [Opcodes](#opcodes) any reference to Register Source, Register Destination, R
 | Base Opcode | Sub Opcode | Register Destination | No purpose |
 
 ## Immediate
-## Single Register
 | Bit 31 till 28 (4 bits) | Bits 27 till 23 (4 bits) | Bits 22 till 0 (23 bits) |
 | :-: | :-: | :-: |
 | Base Opcode | Sub Opcode | Value A |
 
 # Opcodes
 
-ALL values are loaded or stored in big-endian.
-ANY store deletes all the information in the Register it is applied to.
-BOTH Base Opcode AND Sub Opcode MUST match what is written in the table for it to be that exact instruction.
-A Register is defined by the corresponding numerical value where 0 corresponds to R0 through 31 corresponding to R31.
-ANY getting / setting in the Memory is of the size of 64 bits with the exception of M_RSTORE32, M_RSTORE16, M_RSTORE8, M_RLOAD32, M_RLOAD16 and M_RLOAD8.
-ANY getting / setting in the Memory ranges from specified Location till +64 bits or +specified size.
 | Opcode Mnemoic | Ordering Type | Base Opcode (binary) | Sub Opcode (binary) | Description |
 | :-: | :-: | :-: | :-: | :-: |
 | M_RMOVE | Double Register | 0000 | 0000 | Copies the value of Register Source into Register Destination |
@@ -125,6 +122,7 @@ ANY getting / setting in the Memory ranges from specified Location till +64 bits
 | J_RSGE | Double Register, Immediate | 0100 | 0110 | Checks if signed Register Destination using Two's Complement is greater than or equal to signed Register A using Two's Complement, if so it adds Value B as a signed number using Two's Complement to PC and stores the result in PC, else it does nothing |
 | J_LOOP | Single Register, Immediate | 0100 | 0111 | Repeats the instruction of PC till Register Destination, value A amount of times, then exits at Register Destination |
 | J_CALL | Immediate | 0100 | 1000 | Pushes the PC to the stack (-> Instruction M_PUSH) and adds Value A to the PC and stores the result in the PC |
+| J_RET | Immediate | 0100 | 1001 | Pops a value from the stack (-> Instruction M_POP) and stores the result in PC |
 | - | - | - | - | - |
 | B_REQ | Triple Register | 0101 | 0000 | Checks if Register A and Register B are equal, if so it stores 0x0000000000000001 in Register Destination, else it stores 0x0000000000000000 in Register Destination |
 | B_RULT | Triple Register | 0101 | 0001 | Checks if unsigned Register A is less than unsigned Register B,  if so it stores 0x0000000000000001 in Register Destination, else it stores 0x0000000000000000 in Register Destination |
