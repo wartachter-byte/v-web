@@ -1,7 +1,7 @@
 <!-- TO DO: net-com.md -->
 <!-- Complete: Basis, Process -->
 # Workspace
-* "Worskspace" shall mean the environment for all the [Process('s)](#process)
+* "Worskspace" shall mean the environment for all the [Process(es)](#process)
 * The first Process to be created is gained from the 'index' of the Server, as detailed in [net-com.md](/net-com.md)
 
 # Process
