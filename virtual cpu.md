@@ -1,7 +1,11 @@
-<!-- Status: Basis Complete, Better Makeup -->
+<!-- Status: WIP, Basics Complete, Markup good, net-com is TODO -->
+# Workspace
+* "Worskspace" shall mean the environment for all the [Proccess('s)](#proccess)
+* The first Proccess to be created is gained from the 'index' of the Server, as detailed in [net-com.md](/net-com.md)
+
 # Proccess
-"Proccess" shall mean a collection of 1 State and 1 Code, Execution of the Code in the Proccess can be on any CPU.
-"This Proccess" shall mean the current Proccess.
+* "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Proccess or exclusive to this Proccess
+* Proccess can be made by other Proccess
 
 # Definition
 * "Code" shall mean the data which is being executed.
