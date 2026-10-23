@@ -6,7 +6,7 @@
 # Proccess
 * "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Proccess or exclusive to this Proccess
 * Proccess can be made by other Proccess as detailed in [hostcall.md](/hostcall.md)
-* A Proccess is always Exectuting its code unless otherwise specified by [hostcall.md](/hostcall.md)
+* A Proccess does not stop Executing its Code untill the Workspace is destroyed or the Proccess [exits](/hostcall.md)
 * When a Proccess is first created, ita PC will start at 0
 
 # Definition
