@@ -65,12 +65,18 @@ ALL values are loaded or stored in big-endian.
 | A_IBSL | Double Register, Immediate | 0001 | 1001 | Shifts the value of Register A by value B amount of times to the left and stores the result in Register Destination |
 | A_BSR | Triple Register | 0001 | 1010 | Logically shifts the value of Register A by the value of Register B amount of times to the right and stores the result in Register Destination |
 | A_IBSR | Double Register, Immediate | 0001 | 1011 | Logically shifts the value of Register A by value B amount of times to the right and stores the result in Register Destination |
-| A_OR | Triple Register | 0001 | 1100 | Computes the bitwise OR of Register A and Register B and stores the result in Register Destination |
-| A_AND | Triple Register | 0001 | 1101 | Computes the bitwise AND of Register A and Register B and stores the result in Register Destination |
-| A_XOR | Triple Register | 0001 | 1110 | Computes the bitwise XOR of Register A and Register B and stores the result in Register Destination |
-| A_NOR | Triple Register | 0001 | 1111 | Computes the bitwise NOR of Register A and Register B and stores the result in Register Destination |
-| A_NAND | Triple Register | 0010 | 0000 | Computes the bitwise NAND of Register A and Register B and stores the result in Register Destination |
-| A_XNOR | Triple Register | 0010 | 0001 | Computes the bitwise XNOR of Register A and Register B and stores the result in Register Destination |
+| A_SBSL | Triple Register | 0001 | 1100 | Shifts the value of Register A by the value of Register B amount of times to the left ignoring the upper bit and stores the result in Register Destination |
+| A_SIBSL | Double Register, Immediate | 0001 | 1101 | Shifts the value of Register A by value B amount of times to the left ignoring the upper bit and stores the result in Register Destination |
+| A_SBSR | Triple Register | 0001 | 1110 | Shifts the value of Register A by the value of Register B amount of times to the right ignoring the upper bit and stores the result in Register Destination |
+| A_SIBSR | Double Register, Immediate | 0001 | 1111 | Shifts the value of Register A by value B amount of times to the right ignoring the upper bit and stores the result in Register Destination |
+| A_OR | Triple Register | 0010 | 0000 | Computes the bitwise OR of Register A and Register B and stores the result in Register Destination |
+| A_AND | Triple Register | 0010 | 0001 | Computes the bitwise AND of Register A and Register B and stores the result in Register Destination |
+| A_XOR | Triple Register | 0010 | 0010 | Computes the bitwise XOR of Register A and Register B and stores the result in Register Destination |
+| A_NOR | Triple Register | 0010 | 0011 | Computes the bitwise NOR of Register A and Register B and stores the result in Register Destination |
+| A_NAND | Triple Register | 0010 | 0100 | Computes the bitwise NAND of Register A and Register B and stores the result in Register Destination |
+| A_XNOR | Triple Register | 0010 | 0101 | Computes the bitwise XNOR of Register A and Register B and stores the result in Register Destination |
+| A_ADDS | Triple Register | 0010 | 0110 | Adds unsigned Register A and unsigned Register B and stores the lower 64 bits of the result in Register Destination, if the result is larger than 2^64, then it stores 0xFFFFFFFFFFFFFFFF in Register Destination |
+| A_SUBS | Triple Register | 0010 | 0111 | Subtracts unsigned Register B from unsigned Register A and stores the lower 64 bits of the result in Register Destination, if the result is less than 0, then it stores 0x0000000000000000 in Register Destination |
 | - | - | - | - | - |
 | J_REQ | Double Register, Immediate | 0100 | 0000 | Checks if Register Destination and Register A are eqaul, if so it adds Value B as a signed number using Two's Complement to PC and stores the result in PC, else it does nothing |
 | J_RULT | Double Register, Immediate | 0100 | 0001 | Checks if unsigned Register Destination is less than unsigned Register A, if so it adds Value B as a signed number using Two's Complement to PC and stores the result in PC, else it does nothing |
