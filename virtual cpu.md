@@ -2,10 +2,10 @@
 <!-- Complete: Basis, Process -->
 # Workspace
 * "Worskspace" shall mean the environment for all the [Process(es)](#process)
-* The first Process to be created is gained from the 'index' of the Server, as detailed in [net-com.md](/net-com.md)
+* The first Process to be created is detailed in [net-com.md](/net-com.md)
 
 # Process
-* "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Process or exclusive to this Process
+* "Process" shall mean a collection of 1 State and 1 Code being Executed on any CPU shared by multiple Processes or exclusive to this Process
 * Process can be made by other Process as detailed in [hostcall.md](/hostcall.md)
 * A Process does not stop Executing its Code untill the Workspace is destroyed or the Process [exits](/hostcall.md)
 * "Nice" shall mean the priority of a Process, being a number ranging from 1 to 1023
