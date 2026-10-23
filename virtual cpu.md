@@ -3,16 +3,17 @@
 # Workspace
 * "Worskspace" shall mean the environment for all the [Process(es)](#process)
 * The first Process to be created is detailed in [net-com.md](/net-com.md)
+* A Workspace can be 'Frozen' by any kind of trigger and during this Frozen period, the Workspace stops doing anything until not Frozen.
 
 # Process
-* "Process" shall mean a collection of 1 State and 1 Code being Executed on any CPU shared by multiple Processes or exclusive to this Process
-* Process can be made by other Process as detailed in [hostcall.md](/hostcall.md)
-* A Process does not stop Executing its Code untill the Workspace is destroyed or the Process [exits](/hostcall.md)
-* "Nice" shall mean the priority of a Process, being a number ranging from 1 to 1023
-* A Process with a Nice value of 1 SHOULD not execute anymore than 50 Instruction per Second, A Process with a Nice value of 1023 SHOULD not execute less than 500000 Instructions per Second, any other values should be chosen linearly based on these specifications.
-* A Process SHOULD have at least 1 Instruction per Second.
-* Anybody implementing [this documentation](/virtual%20cpu.md) MUST TRY to complete the 2 above rules.
-* When a Process is first created, its PC will start at 0
+1. "Process" shall mean a collection of 1 State and 1 Code being Executed on any CPU shared by multiple Processes or exclusive to this Process
+2. A Process does not stop Executing its Code untill the Workspace is destroyed or the Process [Exits (-> F_HOSTCALL / EXIT)](/hostcall.md)
+3. "Nice" shall mean the priority of a Process, being a number ranging from 1 to 1023
+4. A Process with a Nice value of 1 SHOULD not execute anymore than 50 Instruction per Second, A Process with a Nice value of 1023 SHOULD not execute less than 500000 Instructions per Second, any other values should be chosen linearly based on these specifications.
+5. A Process SHOULD have at least 1 Instruction per Second.
+6. Anybody implementing [this documentation](/virtual%20cpu.md) MUST TRY to comply with rule 4 and 5
+7. An exception to rule 4 and 5 is that Process is [Sleeping (-> F_HOSTCALL / SLEEP)](/hostcall.md) or the Workspace is Frozen
+8. When a Process is first created, its PC will start at 0
 
 # Definition
 * "Code" shall mean a section of [Memory](#state-detailed-definition) that is not writable or readable by the process, but can be executed.
