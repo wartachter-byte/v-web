@@ -5,7 +5,8 @@
 
 # Proccess
 * "Procces" shall mean a collection of 1 State, 1 Code and any CPU shared by multiple Proccess or exclusive to this Proccess
-* Proccess can be made by other Proccess
+* Proccess can be made by other Proccess as detailed in [hostcall.md](/hostcall.md)
+* A Proccess is always Exectuting its code unless otherwise specified by [hostcall.md](/hostcall.md)
 
 # Definition
 * "Code" shall mean the data which is being executed.
@@ -31,7 +32,7 @@ The [State](#definition) consist of sub-groups storing a N amount of data as des
 * "Time Step" shall mean a singular step in the [Execution Cycle](#execution-cycle).
 
 ## Operation
-The [CPU](#definition) MUST [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition).
+The [CPU](#definition) MUST [Run](#execution-cycle) the [Current Instruction](#current-instruction) on every [Time Step](#execution-detailed-definition) when Executing the Code.
 
 # Execution Cycle
-The [CPU](#definition) MUST change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the [Current Instruction](#execution-detailed-definition) and its corresponding description as defined in table 'Opcodes' in [opcodes.md](/opcodes.md).
+The [CPU](#definition) MUST change the [State](#definition) every [Time Step](#execution-detailed-definition) according to the [Current Instruction](#execution-detailed-definition) and its corresponding description as defined in table 'Opcodes' in [opcodes.md](/opcodes.md) and inbetween every Time Step the CPU MUST increment the PC by 8.
