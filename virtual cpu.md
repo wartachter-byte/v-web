@@ -12,8 +12,9 @@
 4. A Process with a Nice value of 1 SHOULD not execute anymore than 50 Instruction per Second, A Process with a Nice value of 1023 SHOULD not execute less than 500000 Instructions per Second, any other values should be chosen linearly based on these specifications.
 5. A Process SHOULD have at least 1 Instruction per Second.
 6. Anybody implementing [this documentation](/virtual%20cpu.md) MUST TRY to comply with rule 4 and 5
-7. An exception to rule 4 and 5 is that Process is [Sleeping (-> F_HOSTCALL / SLEEP)](/hostcall.md) or the Workspace is Frozen
-8. When a Process is first created, its PC will start at 0
+7. An exception to rule 4 and 5 is that the Process is [Sleeping (-> F_HOSTCALL / SLEEP)](/hostcall.md) or the Workspace is Frozen.
+8. "PID" shall mean an unique numerical value that no other Process in the Workspace shares.
+9. When a Process is first created, its PC will start at 0
 
 # Definition
 * "Code" shall mean a section of [Memory](#state-detailed-definition) that is not writable or readable by the process, but can be executed.
